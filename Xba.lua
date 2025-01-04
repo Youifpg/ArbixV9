@@ -1,3 +1,21 @@
+--[[
+local flow_text = ""
+flow_tab:AddTextBox({ 
+    Name = "flow name", 
+    Default = "", 
+    PlaceholderText = "Enter flow name", 
+    Callback = function(value) 
+        cos_text = value 
+    end 
+}) 
+
+Tab5:AddButton({ 
+    Name = "Get", -- Fixed the button name
+    Callback = function() 
+        if flow_text and flow_text ~= "" then 
+            set_flow(flow_text)
+})
+]]
 local replicated_storage = game:GetService("ReplicatedStorage")
 local players = game:GetService("Players")
 local teams = game:GetService("Teams")
@@ -185,7 +203,7 @@ main_tab:AddButton({
 main_tab:AddButton({
 	Name = "Inf Stamina",
 	Callback = function()
-			local args = {
+local args = {
     [1] = 0/0
 }
 
@@ -195,23 +213,10 @@ game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Knit
 
 local flow_tab = window:MakeTab({ Name = "Flow", Icon = "rbxassetid://4483345998" })
 flow_tab:AddSection({ Name = "! USE THIS FEATURE AT YOUR OWN RISK !" })
-local flow_text = ""
-flow_tab:AddTextBox({ 
-    Name = "flow name", 
-    Default = "", 
-    PlaceholderText = "Enter flow name", 
-    Callback = function(value) 
-        cos_text = value 
-    end 
-}) 
-
-Tab5:AddButton({ 
-    Name = "Get", -- Fixed the button name
-    Callback = function() 
-        if flow_text and flow_text ~= "" then 
-            set_flow(flow_text)
-})
-
+main_tab:AddButton({
+	Name = "Flow gui",
+	Callback = function()
+			
 local misc_tab = window:MakeTab({ Name = "Misc", Icon = "rbxassetid://4483345998" })
 misc_tab:AddSection({ Name = "Misc" })
 misc_tab:AddLabel("Coming Soon...")
