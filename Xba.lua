@@ -100,6 +100,79 @@ end
 
 local main_tab = window:MakeTab({ Name = "Main", Icon = "rbxassetid://4483345998" })
 main_tab:AddSection({ Name = "Main" })
+
+local isAutoGoalEnabled = false
+local isAutoBallEnabled = false
+
+local function AutoGoal()
+    local character = player.Character or player.CharacterAdded:Wait()
+    local football = workspace:FindFirstChild("Football")
+
+    if football then
+        while isAutoGoalEnabled do
+            if character:FindFirstChild("Football") then
+                -- check teams by touka :)
+                local goalPosition
+                if player.Team.Name == "Away" then
+                    goalPosition = workspace.Goals.Away.CFrame
+                elseif player.Team.Name == "Home" then
+                    goalPosition = workspace.Goals.Home.CFrame
+                end
+
+                if goalPosition then
+                    character:SetPrimaryPartCFrame(goalPosition)
+                    wait(0.1)
+                    local args = {
+                        [1] = 30,
+                        [4] = Vector3.new(0, 0, 0)
+                    }
+                    replicatedStorage.Packages.Knit.Services.BallService.RE.Shoot:FireServer()
+                end
+
+                wait(1) -- Here you can change the Time to the next teleport i make it 1 to avoid spamming :)
+            else
+                wait(0.5)
+            end
+        end
+    end
+end
+
+main_tab:AddToggle({
+    Name = "Auto Goal",
+    Callback = function(value)
+        isAutoGoalEnabled = value
+        if isAutoGoalEnabled then
+            AutoGoal()
+        end
+    end
+})
+
+local function trackFootball()
+    local character = player.Character or player.CharacterAdded:Wait()
+
+    while isAutoBallEnabled do
+        local football = workspace:FindFirstChild("Football")
+        if football then
+            if not character:FindFirstChild("Football") then
+                character:SetPrimaryPartCFrame(football.CFrame)
+            end
+        else
+            print("Football is not in workspace anymore")
+        end
+        wait(0.1)
+    end
+end
+
+main_tab:AddToggle({
+    Name = "Auto Teleport to Football",
+    Callback = function(value)
+        isAutoBallEnabled = value
+        if isAutoBallEnabled then
+            trackFootball()
+        end
+    end
+})
+
 main_tab:AddToggle({
     Name = "Auto Farm",
     Callback = function()
