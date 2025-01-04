@@ -202,13 +202,7 @@ main_tab:AddButton({
 })
 main_tab:AddButton({
 	Name = "Inf Stamina",
-	Callback = function()
-local args = {
-    [1] = 0/0
-}
-
-game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Knit"):WaitForChild("Services"):WaitForChild("StaminaService"):WaitForChild("RE"):WaitForChild("DecreaseStamina"):FireServer(unpack(args))
-  	end    
+	Callback = function()   
 })
 
 local flow_tab = window:MakeTab({ Name = "Flow", Icon = "rbxassetid://4483345998" })
@@ -216,7 +210,9 @@ flow_tab:AddSection({ Name = "! USE THIS FEATURE AT YOUR OWN RISK !" })
 main_tab:AddButton({
 	Name = "Flow gui",
 	Callback = function()
-			
+
+			end
+		})
 local misc_tab = window:MakeTab({ Name = "Misc", Icon = "rbxassetid://4483345998" })
 misc_tab:AddSection({ Name = "Misc" })
 misc_tab:AddLabel("Coming Soon...")
