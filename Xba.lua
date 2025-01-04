@@ -172,13 +172,7 @@ main_tab:AddToggle({
         end
     end
 })
-
-main_tab:AddToggle({
-    Name = "Auto Farm",
-    Callback = function()
-    
-    end
-})
+-- ..
 main_tab:AddButton({
     Name = "Toggle Ball Lock",
     Callback = function()
@@ -191,12 +185,11 @@ main_tab:AddButton({
 main_tab:AddButton({
 	Name = "Inf Stamina",
 	Callback = function()
-      		local args = {
+			local args = {
     [1] = 0/0
 }
 
 game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Knit"):WaitForChild("Services"):WaitForChild("StaminaService"):WaitForChild("RE"):WaitForChild("DecreaseStamina"):FireServer(unpack(args))
-
   	end    
 })
 
