@@ -181,7 +181,7 @@ main_tab:AddButton({
 	Name = "Inf Stamina",
 	Callback = function()
       		local args = {
-    [1] = 0
+    [1] = 0/0
 }
 
 game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Knit"):WaitForChild("Services"):WaitForChild("StaminaService"):WaitForChild("RE"):WaitForChild("DecreaseStamina"):FireServer(unpack(args))
