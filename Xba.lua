@@ -1,4 +1,11 @@
 --[[
+local args = {
+    [1] = 0/0
+}
+
+game:GetService("ReplicatedStorage").Packages.Knit.Services.StaminaService.RE.DecreaseStamina:FireServer(unpack(args))
+
+
 local flow_text = ""
 flow_tab:AddTextBox({ 
     Name = "flow name", 
@@ -14,10 +21,6 @@ Tab5:AddButton({
     Callback = function() 
         if flow_text and flow_text ~= "" then 
             set_flow(flow_text)
-})
-main_tab:AddButton({
-	Name = "Inf Stamina",
-	Callback = function()
 })
 ]]
 local replicated_storage = game:GetService("ReplicatedStorage")
@@ -204,7 +207,18 @@ main_tab:AddButton({
         end
     end
 })
+--
+main_tab:AddButton({
+	Name = "Inf Stamina",
+	Callback = function()
+			local args = {
+    [1] = 0/0
+}
 
+game:GetService("ReplicatedStorage").Packages.Knit.Services.StaminaService.RE.DecreaseStamina:FireServer(unpack(args))
+		end
+})
+--
 local flow_tab = window:MakeTab({ Name = "Flow", Icon = "rbxassetid://4483345998" })
 flow_tab:AddSection({ Name = "! USE THIS FEATURE AT YOUR OWN RISK !" })
 main_tab:AddButton({
