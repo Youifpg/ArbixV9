@@ -197,7 +197,7 @@ local flow_tab = window:MakeTab({ Name = "Flow", Icon = "rbxassetid://4483345998
 flow_tab:AddSection({ Name = "! USE THIS FEATURE AT YOUR OWN RISK !" })
 local flow_text = ""
 flow_tab:AddTextBox({ 
-    Title = "flow name", 
+    Name = "flow name", 
     Default = "", 
     PlaceholderText = "Enter flow name", 
     Callback = function(value) 
