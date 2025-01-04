@@ -15,6 +15,10 @@ Tab5:AddButton({
         if flow_text and flow_text ~= "" then 
             set_flow(flow_text)
 })
+main_tab:AddButton({
+	Name = "Inf Stamina",
+	Callback = function()
+})
 ]]
 local replicated_storage = game:GetService("ReplicatedStorage")
 local players = game:GetService("Players")
@@ -199,10 +203,6 @@ main_tab:AddButton({
             task.spawn(lockb)
         end
     end
-})
-main_tab:AddButton({
-	Name = "Inf Stamina",
-	Callback = function()   
 })
 
 local flow_tab = window:MakeTab({ Name = "Flow", Icon = "rbxassetid://4483345998" })
