@@ -195,11 +195,21 @@ game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Knit
 
 local flow_tab = window:MakeTab({ Name = "Flow", Icon = "rbxassetid://4483345998" })
 flow_tab:AddSection({ Name = "! USE THIS FEATURE AT YOUR OWN RISK !" })
-flow_tab:AddButton({
-	Name = "Flow Gui",
-	Callback = function()
- loadstring(game:HttpGet("https://raw.githubusercontent.com/BatusBey/Flow/refs/heads/main/Flow"))() 
-    end
+local flow_text = ""
+local flowTextBox = flow_tab:AddTextBox({ 
+    Title = "flow name", 
+    Default = "", 
+    PlaceholderText = "Enter flow name", 
+    Callback = function(value) 
+        cos_text = value 
+    end 
+}) 
+
+Tab5:AddButton({ 
+    Name = "Get", -- Fixed the button name
+    Callback = function() 
+        if flow_text and flow_text ~= "" then 
+            set_flow(flow_text)
 })
 
 local misc_tab = window:MakeTab({ Name = "Misc", Icon = "rbxassetid://4483345998" })
